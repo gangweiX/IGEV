@@ -1,4 +1,4 @@
-# IGEV-rStereo
+# IGEV-Stereo
 
 The source code is coming soon.
 
