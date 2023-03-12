@@ -7,15 +7,10 @@ Gangwei Xu, Xianqi Wang, Xiaohuan Ding, Xin Yang<br/>
 
 <img src="IGEV-Stereo/IGEV-Stereo.png">
 
-
-#How to Use
-
 ## Environment
 * NVIDIA RTX 3090
 * Python 3.8
 * Pytorch 1.12
-
-## Install
 
 ### Create a virtual environment and activate it.
 
@@ -34,3 +29,12 @@ pip install matplotlib
 pip install tqdm
 pip install timm==0.5.4
 ```
+
+## Demos
+Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
+
+You can demo a trained model on Middlebury training pairs
+```
+python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
+```
+
