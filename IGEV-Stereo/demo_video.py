@@ -33,6 +33,7 @@ parser.add_argument('--corr_radius', type=int, default=4, help="width of the cor
 parser.add_argument('--n_downsample', type=int, default=2, help="resolution of the disparity field (1/2^K)")
 parser.add_argument('--slow_fast_gru', action='store_true', help="iterate the low-res GRUs more frequently")
 parser.add_argument('--n_gru_layers', type=int, default=3, help="number of hidden GRU levels")
+parser.add_argument('--max_disp', type=int, default=192, help="max disp of geometry encoding volume")
 
 args = parser.parse_args()
 model = torch.nn.DataParallel(IGEVStereo(args), device_ids=[0])
