@@ -1,10 +1,15 @@
 # IGEV-Stereo & IGEV-MVS
+This repository contains the source code for our paper:
 
-The source code is coming soon.
+Iterative Geometry Encoding Volume for Stereo Matching<br/>
+CVPR 2023 <br/>
+Gangwei Xu, Xianqi Wang, Xiaohuan Ding, Xin Yang<br/>
 
-# How to use
+
+#How to Use
 
 ## Environment
+* NVIDIA RTX 3090
 * Python 3.8
 * Pytorch 1.12
 
