@@ -84,7 +84,6 @@ class FlowAugmentor:
 
         # asymmetric
         if np.random.rand() < self.asymmetric_color_aug_prob:
-            #print("#####44444", img1.shape)
             img1 = np.array(self.photo_aug(Image.fromarray(img1)), dtype=np.uint8)
             img2 = np.array(self.photo_aug(Image.fromarray(img2)), dtype=np.uint8)
 
@@ -127,8 +126,6 @@ class FlowAugmentor:
         
         scale_x = np.clip(scale_x, min_scale, None)
         scale_y = np.clip(scale_y, min_scale, None)
-
-        # print("####22222", flow.shape, scale_x, scale_y)
 
         if np.random.rand() < self.spatial_aug_prob:
             # rescale the images
