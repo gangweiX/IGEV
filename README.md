@@ -33,8 +33,72 @@ pip install timm==0.5.4
 ## Demos
 Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
 
-You can demo a trained model on Middlebury training pairs
+You can demo a trained model on pairs of images. To predict stereo for Middlebury, run
 ```
 python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
 ```
+
+
+## Required Data
+To evaluate/train IGEV-Stereo, you will need to download the required datasets. 
+* [Scene Flow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
+* [KITTI](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
+* [Middlebury](https://vision.middlebury.edu/stereo/data/)
+* [ETH3D](https://www.eth3d.net/datasets#low-res-two-view-test-data)
+
+By default `stereo_datasets.py` will search for the datasets in these locations. 
+
+```
+├── /data
+    ├── sceneflow
+        ├── frames_finalpass
+        ├── disparity
+    ├── KITTI
+        ├── KITTI_2012
+            ├── training
+            ├── testing
+            ├── vkitti
+        ├── KITTI_2015
+            ├── training
+            ├── testing
+            ├── vkitti
+    ├── Middlebury
+        ├── trainingH
+        ├── trainingH_GT
+    ├── ETH3D
+        ├── two_view_training
+        ├── two_view_training_gt
+```
+
+
+## Evaluation
+
+To evaluate a trained model on a test set (e.g. Scene Flow), run
+```Shell
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset sceneflow
+```
+
+## Training
+
+To train on Scene Flow, run
+
+```Shell
+python train_stereo.py
+```
+
+To train on KITTI, run
+```Shell
+python train_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset kitti
+```
+
+## Submission
+
+For submission to the KITTI benchmark, run
+```Shell
+python save_disp.py
+```
+
+# Acknowledgements
+
+This project is heavily based on [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), We thank the original authors for their excellent work.
 
