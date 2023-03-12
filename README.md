@@ -41,7 +41,7 @@ python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
 
 ## Required Data
 To evaluate/train IGEV-Stereo, you will need to download the required datasets. 
-* [Scene Flow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
+* [Scene Flow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
 * [KITTI](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 * [Middlebury](https://vision.middlebury.edu/stereo/data/)
 * [ETH3D](https://www.eth3d.net/datasets#low-res-two-view-test-data)
