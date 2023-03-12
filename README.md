@@ -14,7 +14,8 @@ You can demo a trained model on pairs of images. To predict stereo for Middlebur
 ```
 python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
 ```
-<img src="IGEV-Stereo/demo-imgs.png", width="90%">
+
+<img src="IGEV-Stereo/demo-imgs.png" width="90%">
 
 ## Environment
 * NVIDIA RTX 3090
