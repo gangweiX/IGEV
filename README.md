@@ -7,6 +7,15 @@ Gangwei Xu, Xianqi Wang, Xiaohuan Ding, Xin Yang<br/>
 
 <img src="IGEV-Stereo/IGEV-Stereo.png">
 
+## Demos
+Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
+
+You can demo a trained model on pairs of images. To predict stereo for Middlebury, run
+```
+python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
+```
+<img src="IGEV-Stereo/demo-imgs.png", width="90%">
+
 ## Environment
 * NVIDIA RTX 3090
 * Python 3.8
@@ -29,15 +38,6 @@ pip install matplotlib
 pip install tqdm
 pip install timm==0.5.4
 ```
-
-## Demos
-Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
-
-You can demo a trained model on pairs of images. To predict stereo for Middlebury, run
-```
-python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
-```
-
 
 ## Required Data
 To evaluate/train IGEV-Stereo, you will need to download the required datasets. 
