@@ -3,7 +3,7 @@ The IGEV-MVS is coming soon.
 
 This repository contains the source code for our paper:
 
-Iterative Geometry Encoding Volume for Stereo Matching<br/>
+[Iterative Geometry Encoding Volume for Stereo Matching](https://arxiv.org/pdf/2303.06615.pdf)<br/>
 CVPR 2023 <br/>
 Gangwei Xu, Xianqi Wang, Xiaohuan Ding, Xin Yang<br/>
 
