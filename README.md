@@ -101,6 +101,20 @@ For submission to the KITTI benchmark, run
 python save_disp.py
 ```
 
+## Citation
+
+If you find our work useful in your research, please consider citing our paper:
+
+```
+@article{xu2023iterative,
+  title={Iterative Geometry Encoding Volume for Stereo Matching},
+  author={Xu, Gangwei and Wang, Xianqi and Ding, Xiaohuan and Yang, Xin},
+  journal={arXiv preprint arXiv:2303.06615},
+  year={2023}
+}
+```
+
+
 # Acknowledgements
 
 This project is heavily based on [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), We thank the original authors for their excellent work.
