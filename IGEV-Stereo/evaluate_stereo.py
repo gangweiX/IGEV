@@ -36,10 +36,7 @@ def validate_eth3d(model, iters=32, mixed_prec=False):
         image1, image2 = padder.pad(image1, image2)
 
         with autocast(enabled=mixed_prec):
-            if iters == 0:
-                flow_pr = model(image1, image2, iters=iters, test_mode=True)
-            else:
-                _, flow_pr = model(image1, image2, iters=iters, test_mode=True)
+            flow_pr = model(image1, image2, iters=iters, test_mode=True)
         flow_pr = padder.unpad(flow_pr.float()).cpu().squeeze(0)
         assert flow_pr.shape == flow_gt.shape, (flow_pr.shape, flow_gt.shape)
         epe = torch.sum((flow_pr - flow_gt)**2, dim=0).sqrt()
@@ -88,10 +85,7 @@ def validate_kitti(model, iters=32, mixed_prec=False):
 
         with autocast(enabled=mixed_prec):
             start = time.time()
-            if iters == 0:
-                flow_pr = model(image1, image2, iters=iters, test_mode=True)
-            else:
-                _, flow_pr = model(image1, image2, iters=iters, test_mode=True)
+            flow_pr = model(image1, image2, iters=iters, test_mode=True)
             end = time.time()
 
         if val_id > 50:
@@ -142,10 +136,7 @@ def validate_sceneflow(model, iters=32, mixed_prec=False):
         image1, image2 = padder.pad(image1, image2)
 
         with autocast(enabled=mixed_prec):
-            if iters == 0:
-                flow_pr = model(image1, image2, iters=iters, test_mode=True)
-            else:
-                flow_pr = model(image1, image2, iters=iters, test_mode=True)
+            flow_pr = model(image1, image2, iters=iters, test_mode=True)
         flow_pr = padder.unpad(flow_pr).cpu().squeeze(0)
         assert flow_pr.shape == flow_gt.shape, (flow_pr.shape, flow_gt.shape)
 
@@ -194,10 +185,7 @@ def validate_middlebury(model, iters=32, split='F', mixed_prec=False):
         image1, image2 = padder.pad(image1, image2)
 
         with autocast(enabled=mixed_prec):
-            if iters == 0:
-                flow_pr = model(image1, image2, iters=iters, test_mode=True)
-            else:
-                _, flow_pr = model(image1, image2, iters=iters, test_mode=True)
+            flow_pr = model(image1, image2, iters=iters, test_mode=True)
         flow_pr = padder.unpad(flow_pr).cpu().squeeze(0)
 
         assert flow_pr.shape == flow_gt.shape, (flow_pr.shape, flow_gt.shape)
