@@ -105,11 +105,11 @@ python save_disp.py
 
 If you find our work useful in your research, please consider citing our paper:
 
-```
-@article{xu2023iterative,
+```bibtex
+@inproceedings{xu2023iterative,
   title={Iterative Geometry Encoding Volume for Stereo Matching},
   author={Xu, Gangwei and Wang, Xianqi and Ding, Xiaohuan and Yang, Xin},
-  journal={arXiv preprint arXiv:2303.06615},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2023}
 }
 ```
