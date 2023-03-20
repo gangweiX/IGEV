@@ -28,7 +28,7 @@ parser = argparse.ArgumentParser(description='IterMVStereo for high-resolution m
 parser.add_argument('--mode', default='train', help='train or val', choices=['train', 'val'])
 
 parser.add_argument('--dataset', default='dtu_yao', help='select dataset')
-parser.add_argument('--trainpath', default='/data/dtu_data/dtu_train/', help='train datapath')
+parser.add_argument('--trainpath', default='/data/DTU_data/dtu_train/', help='train datapath')
 parser.add_argument('--valpath', help='validation datapath')
 parser.add_argument('--trainlist', default='./lists/dtu/train.txt', help='train list')
 parser.add_argument('--vallist', default='./lists/dtu/val.txt', help='validation list')
