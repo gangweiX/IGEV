@@ -26,7 +26,7 @@ cudnn.benchmark = True
 parser = argparse.ArgumentParser(description='Predict depth, filter, and fuse')
 parser.add_argument('--model', default='IterMVS', help='select model')
 parser.add_argument('--dataset', default='dtu_yao_eval', help='select dataset')
-parser.add_argument('--testpath', default='/data/dtu_data/dtu_test/', help='testing data path')
+parser.add_argument('--testpath', default='/data/DTU_data/dtu_test/', help='testing data path')
 parser.add_argument('--testlist', default='./lists/dtu/test.txt', help='testing scan list')
 parser.add_argument('--maxdisp', default=256)
 parser.add_argument('--split', default='intermediate', help='select data')
