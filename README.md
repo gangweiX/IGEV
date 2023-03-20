@@ -75,27 +75,6 @@ By default `stereo_datasets.py` will search for the datasets in these locations.
         ├── dtu_test
 ```
 
-
-## Evaluation
-
-To evaluate a trained model on a test set (e.g. Scene Flow), run
-```Shell
-python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset sceneflow
-```
-
-## Training
-
-To train on Scene Flow, run
-
-```Shell
-python train_stereo.py
-```
-
-To train on KITTI, run
-```Shell
-python train_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset kitti
-```
-
 ## Evaluation
 
 To evaluate on Scene Flow or Middlebury or ETH3D, run
@@ -110,6 +89,19 @@ python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow
 or
 ```Shell
 python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset eth3d
+```
+
+## Training
+
+To train on Scene Flow, run
+
+```Shell
+python train_stereo.py
+```
+
+To train on KITTI, run
+```Shell
+python train_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset kitti
 ```
 
 ## Submission
