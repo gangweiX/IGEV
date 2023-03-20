@@ -1,5 +1,4 @@
 # IGEV-Stereo & IGEV-MVS
-The IGEV-MVS is coming soon.
 
 This repository contains the source code for our paper:
 
@@ -71,6 +70,9 @@ By default `stereo_datasets.py` will search for the datasets in these locations.
     ├── ETH3D
         ├── two_view_training
         ├── two_view_training_gt
+    ├── DTU_data
+        ├── dtu_train
+        ├── dtu_test
 ```
 
 
@@ -94,11 +96,41 @@ To train on KITTI, run
 python train_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset kitti
 ```
 
+## Evaluation
+
+To evaluate on Scene Flow or Middlebury or ETH3D, run
+
+```Shell
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset sceneflow
+```
+or
+```Shell
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset middlebury_H
+```
+or
+```Shell
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset eth3d
+```
+
 ## Submission
 
 For submission to the KITTI benchmark, run
 ```Shell
 python save_disp.py
+```
+
+## MVS training and evaluation
+
+To train on DTU, run
+
+```Shell
+python train_mvs.py
+```
+
+To evaluate on DTU, run
+
+```Shell
+python evaluate_mvs.py
 ```
 
 ## Citation
