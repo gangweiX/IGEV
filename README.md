@@ -18,6 +18,14 @@ python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
 
 <img src="IGEV-Stereo/demo-imgs.png" width="90%">
 
+## Comparison with RAFT-Stereo
+
+| Method | KITTI 2012 <br> (3-noc) | KITTI 2015 <br> (D1-all) | Memory (G) | Runtime (s) |
+|:-:|:-:|:-:|:-:|:-:|
+| RAFT-Stereo | 1.30 % | 1.82 % | 1.02 | 0.38 |
+| IGEV-Stereo | 1.12 % | 1.59 % | 0.66 | 0.18 |
+
+
 ## Environment
 * NVIDIA RTX 3090
 * Python 3.8
