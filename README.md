@@ -11,6 +11,8 @@ Gangwei Xu, Xianqi Wang, Xiaohuan Ding, Xin Yang<br/>
 ## Demos
 Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
 
+We assume the downloaded pretrained weights are located under the pretrained_models directory.
+
 You can demo a trained model on pairs of images. To predict stereo for Middlebury, run
 ```
 python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
