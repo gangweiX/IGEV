@@ -134,7 +134,7 @@ class IGEVMVS(nn.Module):
             del warped_feature, src_feature, src_proj
 
             correlation_sum += correlation * view_weight.unsqueeze(1)
-            view_weight_sum += view_weight_sum + view_weight.unsqueeze(1) 
+            view_weight_sum += view_weight.unsqueeze(1) 
             del correlation, view_weight
         del match_left, match_rights, src_projs
                 
