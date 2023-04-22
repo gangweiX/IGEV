@@ -165,7 +165,7 @@ class IGEVStereo(nn.Module):
 
             match_left = self.desc(self.conv(features_left[0]))
             match_right = self.desc(self.conv(features_right[0]))
-            gwc_volume = build_gwc_volume(match_left, match_right, 192//4, 8)
+            gwc_volume = build_gwc_volume(match_left, match_right, self.args.max_disp//4, 8)
             gwc_volume = self.corr_stem(gwc_volume)
             gwc_volume = self.corr_feature_att(gwc_volume, features_left[0])
             geo_encoding_volume = self.cost_agg(gwc_volume, features_left)
