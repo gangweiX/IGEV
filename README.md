@@ -144,6 +144,7 @@ If you find our work useful in your research, please consider citing our paper:
   title={Iterative Geometry Encoding Volume for Stereo Matching},
   author={Xu, Gangwei and Wang, Xianqi and Ding, Xiaohuan and Yang, Xin},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={21919--21928},
   year={2023}
 }
 ```
