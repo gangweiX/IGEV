@@ -54,7 +54,7 @@ pip install timm==0.5.4
 To evaluate/train IGEV-Stereo, you will need to download the required datasets. 
 * [Scene Flow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
 * [KITTI](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
-* [Middlebury](https://vision.middlebury.edu/stereo/data/)
+* [Middlebury]([https://vision.middlebury.edu/stereo/data/](https://vision.middlebury.edu/stereo/submit3/))
 * [ETH3D](https://www.eth3d.net/datasets#low-res-two-view-test-data)
 
 By default `stereo_datasets.py` will search for the datasets in these locations. 
