@@ -105,12 +105,12 @@ python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow
 To train on Scene Flow, run
 
 ```Shell
-python train_stereo.py
+python train_stereo.py --logdir ./checkpoints/sceneflow
 ```
 
 To train on KITTI, run
 ```Shell
-python train_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset kitti
+python train_stereo.py --logdir ./checkpoints/kitti --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --train_datasets kitti
 ```
 
 ## Submission
