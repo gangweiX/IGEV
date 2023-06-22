@@ -165,7 +165,7 @@ def validate_sceneflow(model, iters=32, mixed_prec=False):
     f.write("Validation Scene Flow: %f, %f\n" % (epe, d1))
 
     print("Validation Scene Flow: %f, %f" % (epe, d1))
-    return {'scene-flow-epe': epe, 'scene-flow-d1': d1}
+    return {'scene-disp-epe': epe, 'scene-disp-d1': d1}
 
 
 @torch.no_grad()
