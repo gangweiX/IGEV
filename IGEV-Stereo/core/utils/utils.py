@@ -59,21 +59,14 @@ def forward_interpolate(flow):
 def bilinear_sampler(img, coords, mode='bilinear', mask=False):
     """ Wrapper for grid_sample, uses pixel coordinates """
     H, W = img.shape[-2:]
-
-    # print("$$$55555", img.shape, coords.shape)
     xgrid, ygrid = coords.split([1,1], dim=-1)
     xgrid = 2*xgrid/(W-1) - 1
-
-    # print("######88888", xgrid)
     assert torch.unique(ygrid).numel() == 1 and H == 1 # This is a stereo problem
-
     grid = torch.cat([xgrid, ygrid], dim=-1)
-    # print("###37777", grid.shape)
     img = F.grid_sample(img, grid, align_corners=True)
     if mask:
         mask = (xgrid > -1) & (ygrid > -1) & (xgrid < 1) & (ygrid < 1)
         return img, mask.float()
-
     return img
 
 
