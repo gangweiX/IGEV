@@ -151,5 +151,5 @@ If you find our work useful in your research, please consider citing our paper:
 
 # Acknowledgements
 
-This project is heavily based on [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), We thank the original authors for their excellent work.
+This project is heavily based on [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), we thank the original authors for their excellent work.
 
