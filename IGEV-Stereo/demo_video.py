@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
         disp_np = (2*disp).data.cpu().numpy().squeeze().astype(np.uint8)
         if args.save_numpy:
-            frames.append(out_img)
+            frames.append(disp_np)
         disp_np = cv2.applyColorMap(disp_np, cv2.COLORMAP_PLASMA)
         image_np = np.array(Image.open(imfile1)).astype(np.uint8)       
         out_img = np.concatenate((image_np, disp_np), 0)
