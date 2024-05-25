@@ -13,9 +13,21 @@ Pretrained models can be downloaded from [google drive](https://drive.google.com
 We assume the downloaded pretrained weights are located under the pretrained_models directory.
 
 You can demo a trained model on pairs of images. To predict stereo for Middlebury, run
+```Shell
+python demo_imgs.py \
+--restore_ckpt pretrained_models/sceneflow/sceneflow.pth \
+-l=path/to/your/left_imgs \
+-r=path/to/your/right_imgs
 ```
-python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
+or you can demo a trained model pairs of images for a video, run:
+```Shell
+python demo_imgs.py \
+--restore_ckpt pretrained_models/sceneflow/sceneflow.pth \
+-l=path/to/your/left_imgs \
+-r=path/to/your/right_imgs
 ```
+
+To save the disparity values as .npy files, run any of the demos with the ```--save_numpy``` flag.
 
 <img src="IGEV-Stereo/demo-imgs.png" width="90%">
 
@@ -34,13 +46,13 @@ python demo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth
 
 ### Create a virtual environment and activate it.
 
-```
+```Shell
 conda create -n IGEV_Stereo python=3.8
 conda activate IGEV_Stereo
 ```
 ### Dependencies
 
-```
+```Shell
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch -c nvidia
 pip install opencv-python
 pip install scikit-image
