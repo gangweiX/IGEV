@@ -52,6 +52,8 @@ def demo(args):
             disp = disp.cpu().numpy().squeeze()
             disp = np.round(disp * 256).astype(np.uint16)
             skimage.io.imsave(file_stem, disp)
+            if args.save_numpy:
+                np.save(output_directory / f"{file_stem}.npy", disp.squeeze())
 
 
 if __name__ == '__main__':

@@ -56,6 +56,8 @@ if __name__ == '__main__':
 
     fps_list = np.array([])
     videoWrite = cv2.VideoWriter('./IGEV_Stereo.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 10, (1242, 750))
+    if args.save_numpy:
+        frames = []  # Save the output frames to numpy arrays 
     for (imfile1, imfile2) in tqdm(list(zip(left_images, right_images))):
         image1 = load_image(imfile1)
         image2 = load_image(imfile2)
@@ -81,6 +83,8 @@ if __name__ == '__main__':
         print('Stereo runtime: {:.3f}'.format(1000/avg_fps))
 
         disp_np = (2*disp).data.cpu().numpy().squeeze().astype(np.uint8)
+        if args.save_numpy:
+            frames.append(out_img)
         disp_np = cv2.applyColorMap(disp_np, cv2.COLORMAP_PLASMA)
         image_np = np.array(Image.open(imfile1)).astype(np.uint8)       
         out_img = np.concatenate((image_np, disp_np), 0)
@@ -93,3 +97,5 @@ if __name__ == '__main__':
         cv2.waitKey(1)
         videoWrite.write(out_img)
     videoWrite.release()
+    if args.save_numpy:
+        np.savez('IGEV_Stereo.npz', *frames)
