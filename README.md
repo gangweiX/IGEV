@@ -21,7 +21,7 @@ python demo_imgs.py \
 ```
 or you can demo a trained model pairs of images for a video, run:
 ```Shell
-python demo_imgs.py \
+python demo_video.py \
 --restore_ckpt pretrained_models/sceneflow/sceneflow.pth \
 -l=path/to/your/left_imgs \
 -r=path/to/your/right_imgs
