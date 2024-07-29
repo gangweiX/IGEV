@@ -52,14 +52,14 @@ def demo(args):
             plt.imsave(output_directory / f"{file_stem}.png", disp.squeeze(), cmap='jet')
             if args.save_numpy:
                 np.save(output_directory / f"{file_stem}.npy", disp.squeeze())
-            # disp = np.round(disp * 256).astype(np.uint16)
-            # cv2.imwrite(filename, cv2.applyColorMap(cv2.convertScaleAbs(disp.squeeze(), alpha=0.01),cv2.COLORMAP_JET), [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
+            disp = np.round(disp * 256).astype(np.uint16)
+            cv2.imwrite(filename, cv2.applyColorMap(cv2.convertScaleAbs(disp.squeeze(), alpha=0.01),cv2.COLORMAP_JET), [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained_models/sceneflow/sceneflow.pth')
-    parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
+    parser.add_argument('--save_numpy', default=False, help='save output as numpy arrays')
 
     parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="./demo-imgs/*/im0.png")
     parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./demo-imgs/*/im1.png")
