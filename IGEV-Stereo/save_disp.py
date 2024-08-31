@@ -50,21 +50,25 @@ def demo(args):
             disp = padder.unpad(disp)
             file_stem = os.path.join(output_directory, imfile1.split('/')[-1])
             disp = disp.cpu().numpy().squeeze()
-            disp = np.round(disp * 256).astype(np.uint16)
-            skimage.io.imsave(file_stem, disp)
+            # plt.imsave(file_stem, disp, cmap='jet')
+            if args.save_png:
+                disp_16 = np.round(disp * 256).astype(np.uint16)
+                skimage.io.imsave(file_stem, disp_16)
+
             if args.save_numpy:
-                np.save(output_directory / f"{file_stem}.npy", disp.squeeze())
+                np.save(file_stem.replace('.png', '.npy'), disp)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained_models/kitti/kitti15.pth')
+    parser.add_argument('--save_png', action='store_true', default=True, help='save output as gray images')
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
     parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/data/KITTI/KITTI_2015/testing/image_2/*_10.png")
     parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/data/KITTI/KITTI_2015/testing/image_3/*_10.png")
     # parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/data/KITTI/KITTI_2012/testing/colored_0/*_10.png")
     # parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/data/KITTI/KITTI_2012/testing/colored_1/*_10.png")
-    parser.add_argument('--output_directory', help="directory to save output", default="output")
+    parser.add_argument('--output_directory', help="directory to save output", default="output/kitti2015/disp_0")
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
     parser.add_argument('--valid_iters', type=int, default=16, help='number of flow-field updates during forward pass')
 
