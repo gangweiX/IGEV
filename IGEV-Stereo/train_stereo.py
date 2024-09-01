@@ -1,4 +1,3 @@
-from __future__ import print_function, division
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '0, 1'
 import argparse
@@ -185,11 +184,6 @@ def train(args):
             if total_steps > args.num_steps:
                 should_keep_training = False
                 break
-
-        if len(train_loader) >= 10000:
-            save_path = Path(args.logdir + '/%d_epoch_%s.pth.gz' % (total_steps + 1, args.name))
-            logging.info(f"Saving file {save_path}")
-            torch.save(model.state_dict(), save_path)
 
     print("FINISHED TRAINING")
     logger.close()
