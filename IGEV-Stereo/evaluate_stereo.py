@@ -218,17 +218,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained_models/sceneflow/sceneflow.pth')
     parser.add_argument('--dataset', help="dataset for evaluation", default='sceneflow', choices=["eth3d", "kitti", "sceneflow"] + [f"middlebury_{s}" for s in 'FHQ'])
-    parser.add_argument('--mixed_precision', default=False, action='store_true', help='use mixed precision')
+    parser.add_argument('--mixed_precision', default=True, action='store_true', help='use mixed precision')
     parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during forward pass')
 
     # Architecure choices
     parser.add_argument('--hidden_dims', nargs='+', type=int, default=[128]*3, help="hidden state and context dimensions")
-    parser.add_argument('--corr_implementation', choices=["reg", "alt", "reg_cuda", "alt_cuda"], default="reg", help="correlation volume implementation")
-    parser.add_argument('--shared_backbone', action='store_true', help="use a single backbone for the context and feature encoders")
     parser.add_argument('--corr_levels', type=int, default=2, help="number of levels in the correlation pyramid")
     parser.add_argument('--corr_radius', type=int, default=4, help="width of the correlation pyramid")
     parser.add_argument('--n_downsample', type=int, default=2, help="resolution of the disparity field (1/2^K)")
-    parser.add_argument('--slow_fast_gru', action='store_true', help="iterate the low-res GRUs more frequently")
     parser.add_argument('--n_gru_layers', type=int, default=3, help="number of hidden GRU levels")
     parser.add_argument('--max_disp', type=int, default=192, help="max disp of geometry encoding volume")
     args = parser.parse_args()
@@ -249,16 +246,15 @@ if __name__ == '__main__':
     model.eval()
 
     print(f"The model has {format(count_parameters(model)/1e6, '.2f')}M learnable parameters.")
-    use_mixed_precision = args.corr_implementation.endswith("_cuda")
 
     if args.dataset == 'eth3d':
-        validate_eth3d(model, iters=args.valid_iters, mixed_prec=use_mixed_precision)
+        validate_eth3d(model, iters=args.valid_iters, mixed_prec=args.mixed_precision)
 
     elif args.dataset == 'kitti':
-        validate_kitti(model, iters=args.valid_iters, mixed_prec=use_mixed_precision)
+        validate_kitti(model, iters=args.valid_iters, mixed_prec=args.mixed_precision)
 
     elif args.dataset in [f"middlebury_{s}" for s in 'FHQ']:
-        validate_middlebury(model, iters=args.valid_iters, split=args.dataset[-1], mixed_prec=use_mixed_precision)
+        validate_middlebury(model, iters=args.valid_iters, split=args.dataset[-1], mixed_prec=args.mixed_precision)
 
     elif args.dataset == 'sceneflow':
-        validate_sceneflow(model, iters=args.valid_iters, mixed_prec=use_mixed_precision)
+        validate_sceneflow(model, iters=args.valid_iters, mixed_prec=args.mixed_precision)
