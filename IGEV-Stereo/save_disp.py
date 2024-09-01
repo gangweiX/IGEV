@@ -74,12 +74,9 @@ if __name__ == '__main__':
 
     # Architecture choices
     parser.add_argument('--hidden_dims', nargs='+', type=int, default=[128]*3, help="hidden state and context dimensions")
-    parser.add_argument('--corr_implementation', choices=["reg", "alt", "reg_cuda", "alt_cuda"], default="reg", help="correlation volume implementation")
-    parser.add_argument('--shared_backbone', action='store_true', help="use a single backbone for the context and feature encoders")
     parser.add_argument('--corr_levels', type=int, default=2, help="number of levels in the correlation pyramid")
     parser.add_argument('--corr_radius', type=int, default=4, help="width of the correlation pyramid")
     parser.add_argument('--n_downsample', type=int, default=2, help="resolution of the disparity field (1/2^K)")
-    parser.add_argument('--slow_fast_gru', action='store_true', help="iterate the low-res GRUs more frequently")
     parser.add_argument('--n_gru_layers', type=int, default=3, help="number of hidden GRU levels")
     parser.add_argument('--max_disp', type=int, default=192, help="max disp of geometry encoding volume")
     
