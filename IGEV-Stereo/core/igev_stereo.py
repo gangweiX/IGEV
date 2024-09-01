@@ -200,10 +200,6 @@ class IGEVStereo(nn.Module):
             disp = disp.detach()
             geo_feat = geo_fn(disp, coords)
             with autocast(enabled=self.args.mixed_precision):
-                if self.args.n_gru_layers == 3 and self.args.slow_fast_gru: # Update low-res ConvGRU
-                    net_list = self.update_block(net_list, inp_list, iter16=True, iter08=False, iter04=False, update=False)
-                if self.args.n_gru_layers >= 2 and self.args.slow_fast_gru:# Update low-res ConvGRU and mid-res ConvGRU
-                    net_list = self.update_block(net_list, inp_list, iter16=self.args.n_gru_layers==3, iter08=True, iter04=False, update=False)
                 net_list, mask_feat_4, delta_disp = self.update_block(net_list, inp_list, geo_feat, disp, iter16=self.args.n_gru_layers==3, iter08=self.args.n_gru_layers>=2)
 
             disp = disp + delta_disp
