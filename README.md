@@ -151,7 +151,7 @@ python evaluate_mvs.py
 
 ## Citation
 
-If you find our works useful in your research, please consider citing our papers:
+If you find our work useful in your research, please consider citing our paper:
 
 ```bibtex
 @inproceedings{xu2023iterative,
