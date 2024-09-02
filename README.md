@@ -151,7 +151,7 @@ python evaluate_mvs.py
 
 ## Citation
 
-If you find our work useful in your research, please consider citing our paper:
+If you find our works useful in your research, please consider citing our papers:
 
 ```bibtex
 @inproceedings{xu2023iterative,
@@ -166,5 +166,5 @@ If you find our work useful in your research, please consider citing our paper:
 
 # Acknowledgements
 
-This project is heavily based on [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), we thank the original authors for their excellent work.
+This project is based on [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), [GMStereo](https://github.com/autonomousvision/unimatch), and [CoEx](https://github.com/antabangun/coex). We thank the original authors for their excellent works.
 
