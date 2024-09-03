@@ -145,7 +145,6 @@ class SceneFlowDatasets(StereoDataset):
         right_images = [ im.replace('left', 'right') for im in left_images ]
         disparity_images = [ im.replace(self.dstype, 'disparity').replace('.png', '.pfm') for im in left_images ]
 
-        # Choose a random subset of 400 images for validation
         state = np.random.get_state()
         np.random.seed(1000)
         # val_idxs = set(np.random.permutation(len(left_images))[:100])
