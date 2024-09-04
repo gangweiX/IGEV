@@ -1,11 +1,11 @@
 # IGEV++
-Our significant extension version of IGEV, named IGEV++, is available at [Paper](), [Code](https://github.com/gangweiX/IGEV-plusplus)
+Our significant extension version of IGEV, named IGEV++, is available at [Paper](https://arxiv.org/pdf/2409.00638), [Code](https://github.com/gangweiX/IGEV-plusplus)
 
 # IGEV-Stereo & IGEV-MVS (CVPR 2023)
 
 This repository contains the source code for our paper:
 
-[Iterative Geometry Encoding Volume for Stereo Matching](https://arxiv.org/pdf/2303.06615.pdf)<br/>
+[Iterative Geometry Encoding Volume for Stereo Matching](https://openaccess.thecvf.com/content/CVPR2023/papers/Xu_Iterative_Geometry_Encoding_Volume_for_Stereo_Matching_CVPR_2023_paper.pdf)<br/>
 Gangwei Xu, Xianqi Wang, Xiaohuan Ding, Xin Yang<br/>
 
 <img src="IGEV-Stereo/IGEV-Stereo.png">
