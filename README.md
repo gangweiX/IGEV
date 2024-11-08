@@ -1,7 +1,7 @@
 # IGEV++
 Our significant extension version of IGEV, named IGEV++, is available at [Paper](https://arxiv.org/pdf/2409.00638), [Code](https://github.com/gangweiX/IGEV-plusplus)
 
-# IGEV-Stereo & IGEV-MVS (CVPR 2023)
+# IGEV-Stereo (CVPR 2023)
 
 This repository contains the source code for our paper:
 
