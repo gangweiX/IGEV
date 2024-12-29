@@ -1,5 +1,5 @@
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '0, 1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
 import argparse
 import logging
 import numpy as np
@@ -30,7 +30,7 @@ except:
 
 
 def sequence_loss(disp_preds, disp_init_pred, disp_gt, valid, loss_gamma=0.9, max_disp=192):
-    """ Loss function defined over sequence of flow predictions """
+    """ Loss function defined over sequence of disp predictions """
 
     n_predictions = len(disp_preds)
     assert n_predictions >= 1
@@ -198,6 +198,7 @@ if __name__ == '__main__':
     parser.add_argument('--name', default='igev-stereo', help="name your experiment")
     parser.add_argument('--restore_ckpt', default=None, help="load the weights from a specific checkpoint")
     parser.add_argument('--mixed_precision', default=True, action='store_true', help='use mixed precision')
+    parser.add_argument('--precision_dtype', default='float16', choices=['float16', 'bfloat16', 'float32'], help='Choose mixed precision type: float16 or bfloat16 or float32')
     parser.add_argument('--logdir', default='./checkpoints/sceneflow', help='the directory to save logs and checkpoints')
 
     # Training parameters
@@ -210,7 +211,7 @@ if __name__ == '__main__':
     parser.add_argument('--wdecay', type=float, default=.00001, help="Weight decay in optimizer.")
 
     # Validation parameters
-    parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during validation forward pass')
+    parser.add_argument('--valid_iters', type=int, default=32, help='number of disp-field updates during validation forward pass')
 
     # Architecure choices
     parser.add_argument('--corr_levels', type=int, default=2, help="number of levels in the correlation pyramid")
