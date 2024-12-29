@@ -50,8 +50,8 @@ To save the disparity values as .npy files, run any of the demos with the ```--s
 ### Create a virtual environment and activate it.
 
 ```Shell
-conda create -n IGEV_Stereo python=3.8
-conda activate IGEV_Stereo
+conda create -n IGEV python=3.8
+conda activate IGEV
 ```
 ### Dependencies
 
@@ -127,6 +127,26 @@ To train on KITTI, run
 ```Shell
 python train_stereo.py --logdir ./checkpoints/kitti --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --train_datasets kitti
 ```
+
+## Bfloat16 Training
+NaN values during training: If you encounter NaN values in your training, this is likely due to overflow when using float16. This can happen when large gradients or high activation values exceed the range represented by float16. To fix this: 
+
+-Try switching to `bfloat16` by using `--precision_dtype bfloat16`.
+
+-Alternatively, you can use `float32` precision by setting `--precision_dtype float32`.
+
+### Training with bfloat16
+1. Before you start training, make sure you have hardware that supports bfloat16 and the right environment set up for mixed precision training. Create the environment and install dependencies into it:
+    ```Shell
+    conda create -n IGEV_bf16 python=3.8
+    conda activate IGEV_bf16
+    bash env_bfloat16.sh
+    ```
+
+2. Then you can train the model with bfloat16 precision:
+   ```Shell
+    python train_stereo.py --mixed_precision --precision_dtype bfloat16
+    ```
 
 ## Submission
 
