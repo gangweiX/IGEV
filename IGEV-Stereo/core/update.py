@@ -97,9 +97,21 @@ def pool2x(x):
 def pool4x(x):
     return F.avg_pool2d(x, 5, stride=4, padding=1)
 
+# def interp(x, dest):
+#     interp_args = {'mode': 'bilinear', 'align_corners': True}
+#     return F.interpolate(x, dest.shape[2:], **interp_args)
+
 def interp(x, dest):
+    original_dtype = x.dtype
+    x_fp32 = x.float()
     interp_args = {'mode': 'bilinear', 'align_corners': True}
-    return F.interpolate(x, dest.shape[2:], **interp_args)
+    with torch.cuda.amp.autocast(enabled=False):
+        output_fp32 = F.interpolate(x_fp32, dest.shape[2:], **interp_args)
+    if original_dtype != torch.float32:
+        output = output_fp32.to(original_dtype)
+    else:
+        output = output_fp32
+    return output
 
 class BasicMultiUpdateBlock(nn.Module):
     def __init__(self, args, hidden_dims=[]):
