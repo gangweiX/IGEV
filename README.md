@@ -58,6 +58,12 @@ conda activate IGEV
 ### Dependencies
 
 ```Shell
+bash env.sh
+```
+
+Alternatively, you can install a higher version of PyTorch that supports bfloat16 training.
+
+```Shell
 bash env_bfloat16.sh
 ```
 
@@ -141,10 +147,15 @@ NaN values during training: If you encounter NaN values in your training, this i
 -Alternatively, you can use `float32` precision by setting `--precision_dtype float32`.
 
 ### Training with bfloat16
-Before you start training, make sure you have hardware that supports bfloat16 and the right environment set up for mixed precision training. Then you can train the model with bfloat16 precision:
-   ```Shell
-    python train_stereo.py --mixed_precision --precision_dtype bfloat16
-    ```
+1. Before you start training, make sure you have hardware that supports bfloat16 and the right environment set up for mixed precision training.
+```Shell
+bash env_bfloat16.sh
+```
+
+3. Then you can train the model with bfloat16 precision:
+```Shell
+python train_stereo.py --mixed_precision --precision_dtype bfloat16
+```
 
 ## Submission
 
