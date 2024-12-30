@@ -63,7 +63,7 @@ bash env_bfloat16.sh
 
 ## Required Data
 To evaluate/train IGEV-Stereo, you will need to download the required datasets. 
-* [Scene Flow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
+* [Scene Flow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html) (Includes FlyingThings3D, Driving & Monkaa)
 * [KITTI](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 * [Middlebury](https://vision.middlebury.edu/stereo/submit3/)
 * [ETH3D](https://www.eth3d.net/datasets#low-res-two-view-test-data)
@@ -74,6 +74,14 @@ By default `core/stereo_datasets.py` will search for the datasets in these locat
 ├── /data
     ├── sceneflow
         ├── frames_finalpass
+            ├── TRAIN
+                ├── A
+                ├── ...
+                ├── 15mm_focallength
+                ├── ...
+                ├── funnyworld_augmented0_x2
+                ├── ...
+            ├── TEST
         ├── disparity
     ├── KITTI
         ├── KITTI_2012
