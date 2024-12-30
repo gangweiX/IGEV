@@ -152,7 +152,7 @@ NaN values during training: If you encounter NaN values in your training, this i
 bash env_bfloat16.sh
 ```
 
-3. Then you can train the model with bfloat16 precision:
+2. Then you can train the model with bfloat16 precision:
 ```Shell
 python train_stereo.py --mixed_precision --precision_dtype bfloat16
 ```
