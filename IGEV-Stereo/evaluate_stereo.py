@@ -219,6 +219,7 @@ if __name__ == '__main__':
     parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained_models/sceneflow/sceneflow.pth')
     parser.add_argument('--dataset', help="dataset for evaluation", default='sceneflow', choices=["eth3d", "kitti", "sceneflow"] + [f"middlebury_{s}" for s in 'FHQ'])
     parser.add_argument('--mixed_precision', default=True, action='store_true', help='use mixed precision')
+    parser.add_argument('--precision_dtype', default='float32', choices=['float16', 'bfloat16', 'float32'], help='Choose precision type: float16 or bfloat16 or float32')
     parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during forward pass')
 
     # Architecure choices
