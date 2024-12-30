@@ -10,6 +10,9 @@ Gangwei Xu, Xianqi Wang, Xiaohuan Ding, Xin Yang<br/>
 
 <img src="IGEV-Stereo/IGEV-Stereo.png">
 
+## 📢 News
+2024-12-30: We add bfloat16 training to prevent potential NAN issues during the training process.<br>
+
 ## Demos
 Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
 
