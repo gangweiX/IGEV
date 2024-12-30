@@ -198,7 +198,7 @@ if __name__ == '__main__':
     parser.add_argument('--name', default='igev-stereo', help="name your experiment")
     parser.add_argument('--restore_ckpt', default=None, help="load the weights from a specific checkpoint")
     parser.add_argument('--mixed_precision', default=True, action='store_true', help='use mixed precision')
-    parser.add_argument('--precision_dtype', default='float16', choices=['float16', 'bfloat16', 'float32'], help='Choose mixed precision type: float16 or bfloat16 or float32')
+    parser.add_argument('--precision_dtype', default='float16', choices=['float16', 'bfloat16', 'float32'], help='Choose precision type: float16 or bfloat16 or float32')
     parser.add_argument('--logdir', default='./checkpoints/sceneflow', help='the directory to save logs and checkpoints')
 
     # Training parameters
