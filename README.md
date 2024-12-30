@@ -48,7 +48,6 @@ To save the disparity values as .npy files, run any of the demos with the ```--s
 ## Environment
 * NVIDIA RTX 3090
 * Python 3.8
-* Pytorch 1.12
 
 ### Create a virtual environment and activate it.
 
@@ -59,13 +58,7 @@ conda activate IGEV
 ### Dependencies
 
 ```Shell
-conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch -c nvidia
-pip install opencv-python
-pip install scikit-image
-pip install tensorboard
-pip install matplotlib 
-pip install tqdm
-pip install timm==0.5.4
+bash env_bfloat16.sh
 ```
 
 ## Required Data
@@ -75,7 +68,7 @@ To evaluate/train IGEV-Stereo, you will need to download the required datasets.
 * [Middlebury](https://vision.middlebury.edu/stereo/submit3/)
 * [ETH3D](https://www.eth3d.net/datasets#low-res-two-view-test-data)
 
-By default `stereo_datasets.py` will search for the datasets in these locations. 
+By default `core/stereo_datasets.py` will search for the datasets in these locations. 
 
 ```
 ├── /data
@@ -101,6 +94,7 @@ By default `stereo_datasets.py` will search for the datasets in these locations.
         ├── dtu_train
         ├── dtu_test
 ```
+You should replace the default path with your own.
 
 ## Evaluation
 
@@ -139,14 +133,7 @@ NaN values during training: If you encounter NaN values in your training, this i
 -Alternatively, you can use `float32` precision by setting `--precision_dtype float32`.
 
 ### Training with bfloat16
-1. Before you start training, make sure you have hardware that supports bfloat16 and the right environment set up for mixed precision training. Create the environment and install dependencies into it:
-    ```Shell
-    conda create -n IGEV_bf16 python=3.8
-    conda activate IGEV_bf16
-    bash env_bfloat16.sh
-    ```
-
-2. Then you can train the model with bfloat16 precision:
+Before you start training, make sure you have hardware that supports bfloat16 and the right environment set up for mixed precision training. Then you can train the model with bfloat16 precision:
    ```Shell
     python train_stereo.py --mixed_precision --precision_dtype bfloat16
     ```
